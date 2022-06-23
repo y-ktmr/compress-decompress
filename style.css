@@ -1,0 +1,163 @@
+body {
+    height: fit-content;
+    margin: 0;
+    display: flex;
+    font-family: 'Noto Serif JP', serif;
+}
+
+header {
+    position: fixed;
+}
+    header p {
+        margin: 30px;
+        font-size: 1.5em;
+        writing-mode: vertical-lr;
+    }
+
+        @media (max-width: 450px) {
+            header p {
+                margin: 15px;
+                font-size: 1em;
+            }
+        }
+
+main {
+    width: calc(100vw - 100px);
+    margin: 100px;
+    display: grid; 
+    grid-template-columns: repeat(auto-fill,minmax(150px, 1fr));
+    grid-template-rows: repeat(auto-fill,minmax(150px, 1fr));
+    gap: 75px;
+}
+    @media (max-width: 850px) {
+        main {
+            grid-template-columns: repeat(auto-fill,minmax(100px, 1fr));
+            grid-template-rows: repeat(auto-fill,minmax(100px, 1fr));
+            gap: 50px;
+        }
+    }
+    @media (max-width: 450px) {
+        main {
+            margin: 50px;
+            grid-template-columns: repeat(auto-fill,minmax(75px, 1fr));
+            grid-template-rows: repeat(auto-fill,minmax(75px, 1fr));
+            gap: 25px;
+        }
+
+    }
+
+section.quote {
+    width: 150px;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    /* margin: 25px; */
+    border: solid 1px;
+    transition: all 0.3s;
+}
+    @media (max-width: 850px) {
+        section.quote {
+            width: 100px;
+            height: 100px;
+        }   
+    }
+    @media (max-width: 450px) {
+        section.quote {
+            width: 75px;
+            height: 75px;
+        }
+    }
+    section.quote:hover {
+        background-color: hsl(0, 0%, 0%);
+        /* border-radius: 100%; */
+    }
+
+.cordinateControl {
+    position: absolute
+}
+
+.quoteText {
+    width: fit-content;
+    /* margin-top: 0; */
+    text-align: justify;
+    line-height: 1.75em;
+}
+
+.displayFlex {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.title, .author {
+    width: fit-content;
+    padding-left: 1em;
+    margin: 0;
+    font-size: 0.75em;
+}
+.hover {
+    position: absolute;
+    display: none;
+    background-color: hsl(0, 0%, 100%);
+    z-index: 2;
+}
+    .quote:hover .hover {
+        /* typeA
+        width: 425px; */
+        /* typeB */
+        width: 350px;
+        height: auto;
+        padding: 25px;
+        position: absolute;
+        border: solid 1px;
+        display: inline-block;
+    }
+    @media (max-width: 450px) {
+        .quoteText {
+            font-size: 0.75em;
+        }
+        .title, .author {
+            font-size: 0.5em;
+        }
+        .quote:hover .hover {
+            width: 300px;
+            padding: 15px;
+        }
+    }
+    .quote p {
+        animation: reveal 1s;
+    }
+    @keyframes reveal {
+        0% { opacity: 0%;}
+        10% { opacity: 0%;}
+        14% { opacity: 100%;}
+        18% { opacity: 40%;}
+        20% { opacity: 100%;}
+    }
+
+.rewriteText {
+    width: inherit;
+    height: inherit;
+    margin: 0;
+    position: absolute;
+    font-size: 6em;
+    user-select: none;
+}
+    .rewriteText span {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+        color: hsla(0, 0%, 0%, 10%);
+    }
+        @media (max-width: 850px) {
+            .rewriteText {
+                font-size: 4em;
+            }
+        }
+        @media (max-width: 450px) {
+            .rewriteText {
+                font-size: 3.5em;
+            }
+            .rewriteText span {
+                transform: translate(-50%,-7%);
+            }
+        }
